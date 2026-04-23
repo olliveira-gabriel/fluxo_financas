@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from "react-hook-form";
+import { atualizarTransacao } from "../services/api";
 
-const FormTransacao = ({ atualizarLista, fecharModal }) => {
+const FormTransacao = ({ transacao, atualizarLista, fecharModal }) => {
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+  // 🔥 Preenche o formulário quando for edição
+  useEffect(() => {
+    if (transacao) {
+      reset(transacao);
+    }
+  }, [transacao, reset]);
 
   const onSubmit = async (data) => {
 
@@ -14,28 +22,42 @@ const FormTransacao = ({ atualizarLista, fecharModal }) => {
       return;
     }
 
-    const valorFormatado = parseFloat(data.valor.replace(",", "."));
+    const valorFormatado = parseFloat(data.valor.toString().replace(",", "."));
 
     try {
-      const resposta = await fetch("http://localhost:3000/api/transacoes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...data,
-          valor: valorFormatado,
-          id_cliente: usuario.id
-        })
-      });
 
-      if (!resposta.ok) {
-        alert("Erro ao salvar transação");
-        return;
+
+      if (transacao) {
+        await atualizarTransacao(transacao.id_transacao, {
+          ...data,
+          valor: valorFormatado
+        });
+
+        alert("Transação atualizada!");
+
+      } else {
+
+        const resposta = await fetch("http://localhost:3000/api/transacoes", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...data,
+            valor: valorFormatado,
+            id_cliente: usuario.id
+          })
+        });
+
+        if (!resposta.ok) {
+          alert("Erro ao salvar transação");
+          return;
+        }
+
+        alert("Transação criada!");
       }
 
       reset();
-
-      await atualizarLista(); 
-      fecharModal();        
+      await atualizarLista();
+      fecharModal();
 
     } catch (erro) {
       console.error(erro);
@@ -99,7 +121,7 @@ const FormTransacao = ({ atualizarLista, fecharModal }) => {
         {errors.data && <p className="erro">{errors.data.message}</p>}
 
         <button type="submit">
-          Finalizar Transação
+          {transacao ? "Salvar Alterações" : "Finalizar Transação"}
         </button>
 
       </form>

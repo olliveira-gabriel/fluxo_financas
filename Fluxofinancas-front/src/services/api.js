@@ -57,3 +57,21 @@ export async function listarTransacoes() {
 
   return dados;
 }
+export async function deletarTransacao(id) {
+  const resposta = await fetch(`http://localhost:3000/api/transacoes/${id}`, {
+    method: "DELETE"
+  });
+
+  return resposta.json();
+}
+export async function atualizarTransacao(id, dados) {
+  const resposta = await fetch(`http://localhost:3000/api/transacoes/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(dados)
+  });
+
+  return resposta.json();
+}

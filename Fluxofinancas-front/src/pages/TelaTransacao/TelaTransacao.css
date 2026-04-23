@@ -2,23 +2,27 @@
   font-family: 'MailRay';
   src: url('../../assets/mail_ray_stuff/Mail Ray Stuff.otf') format('opentype');
 }
+
 @font-face {
   font-family: 'Garet';
   src: url('../../assets/garet/Garet-Book.woff2') format('woff2'),
        url('../../assets/garet/Garet-Book.woff') format('woff');
-       
 }
+
 
 .titulo-tr{
   font-family: 'Garet';
   font-size: 47px;
   color: #013045;
 }
+
+
 .sessao-modal{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
+
 .modal {
   position: fixed;
   top: 0;
@@ -35,26 +39,169 @@
 .conteudo-modal {
   background: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
 }
+
+
 .input-tr{
-      width: 450px;
-    height: 55px;
-    border-radius: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: #e4eff3;
-    padding-left: 20px;
-    border: none;
+  width: 450px;
+  height: 55px;
+  border-radius: 20px;
+  margin: 10px 0;
+  background-color: #e4eff3;
+  padding-left: 20px;
+  border: none;
 }
+
 .input-tr::placeholder{
-    font-family: 'Garet';
+  font-family: 'Garet';
   font-size: 16.5px;
   color: #013045;
-  font-weight: 400 !important;
 }
+
 .form-tr{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+
+.container-tabela {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+
+.tabela-custom {
+  width: 90%;
+  max-width: 1000px;
+
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  animation: fadeIn 0.4s ease;
+}
+
+
+.tabela-custom thead {
+  background-color: #f8fafc;
+}
+
+.tabela-custom th {
+  font-family: 'Garet';
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+
+.tabela-custom th,
+.tabela-custom td {
+  padding: 16px 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.tabela-custom tbody td {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+
+.tabela-custom tbody tr {
+  transition: all 0.2s ease;
+}
+
+.tabela-custom tbody tr:hover {
+  background-color: #f1f5f9;
+  transform: scale(1.01);
+}
+
+
+.sem-dados {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+
+.titulo-table{
+  font-family: 'Garet';
+  font-size: 16px;
+  color: #013045;
+  font-weight: 600;
+}
+
+
+.valor-receita {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.valor-despesa {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+
+.badge-tipo {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-tipo.receita {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badge-tipo.despesa {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+
+.acoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.icone {
+  width: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.icone:hover {
+  transform: scale(1.15);
+}
+
+.acao-editar:hover {
+  filter: hue-rotate(180deg);
+}
+
+.acao-excluir:hover {
+  filter: brightness(0.7);
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

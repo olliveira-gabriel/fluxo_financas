@@ -6,24 +6,43 @@ import "../TelaTransacao/TelaTransacao.css"
 import FormTransacao from "../../components/FormTransacao";
 import ListaTransacao from "../../components/ListaTransacao";
 import { listarTransacoes } from "../../services/api";
+import { deletarTransacao } from "../../services/api";
+
 
 function TelaTransacao() {
-
   const [abrirModal, setAbrirModal] = useState(false);
   const [transacoes, setTransacoes] = useState([]);
+  const [transacaoEditando, setTransacaoEditando] = useState(null);
+
 
   async function carregarTransacoes() {
-    try {
-      const dados = await listarTransacoes();
-      setTransacoes(dados);
-    } catch (erro) {
-      console.error(erro);
+      try {
+        const dados = await listarTransacoes();
+        setTransacoes(dados);
+      } catch (erro) {
+        console.error(erro);
+      }
     }
+    useEffect(() => {
+      carregarTransacoes();
+    }, []);
+
+  function handleEditar(transacao) {
+    setTransacaoEditando(transacao);
+    setAbrirModal(true);
   }
 
-  useEffect(() => {
-    carregarTransacoes();
-  }, []);
+  async function handleExcluir(id) {
+    try {
+      await deletarTransacao(id);
+
+      carregarTransacoes();
+
+    } catch (erro) {
+      console.error(erro);
+      alert("Erro ao excluir");
+    }
+}
 
   return (
     <Container>
@@ -41,8 +60,12 @@ function TelaTransacao() {
                 <h1>Nova Transação</h1>
 
                 <FormTransacao 
+                  transacao={transacaoEditando}
                   atualizarLista={carregarTransacoes}
-                  fecharModal={() => setAbrirModal(false)}
+                  fecharModal={() => {
+                    setAbrirModal(false);
+                    setTransacaoEditando(null); // limpa edição
+                  }}
                 />
 
                 <button onClick={() => setAbrirModal(false)}>
@@ -54,7 +77,11 @@ function TelaTransacao() {
         </Col>
 
         <Col>
-          <ListaTransacao transacoes={transacoes} />
+          <ListaTransacao 
+            transacoes={transacoes} 
+            onExcluir={handleExcluir}
+            onEditar={handleEditar}
+          />
         </Col>
       </Row>
     </Container>
