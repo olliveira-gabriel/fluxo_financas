@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'MailRay';
+  src: url('../../assets/mail_ray_stuff/Mail Ray Stuff.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Garet';
+  src: url('../../assets/garet/Garet-Book.woff2') format('woff2'),
+       url('../../assets/garet/Garet-Book.woff') format('woff');
+       
+}
+.container-cadastro{
+  display: flex;
+  flex-direction: row;
+}
+.card-bemvindo{
+  width: 50%;
+  height: 100vh;
+  background-color: #013045;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+   justify-content: center;
+}
+.card-formcadastro{
+  width: 50%;
+  height: 100vh;
+  background-color: #ffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+}
+.forms-cadastro {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.titulo-sbjv {
+  color: #e4eff3;
+  font-family: 'MailRay';
+  font-size: 140px;
+}
+
+.input-cadastro{
+    width: 450px;
+    height: 55px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #e4eff3;
+    padding-left: 20px;
+    border: none;
+}
+.input-cadastro::placeholder {
+  font-family: 'Garet';
+  font-size: 16.5px;
+  color: #013045;
+  font-weight: 400 !important;
+}
+.titulo{
+  font-family: 'Garet';
+  font-size: 47px;
+  color: #013045;
+  text-align: center;
+
+}
+button{
+    width: 320px;
+    height: 70px;
+    border-radius: 44px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: #013045;
+    color: #e4eff3;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
+    border: none;
+}
+.link-login{
+  color: #013045;
+  font-family: 'Garet';
+  font-size: 16px;
+  margin-top: 20px;
+
+
+}
+.erro{
+  font-family: 'Garet';
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
