@@ -93,5 +93,47 @@ router.put("/:id_transacao", async (req, res) => {
   }
 });
 
+router.get("/total-despesas/:id_cliente", async (req, res) => {
+  const { id_cliente } = req.params;
+
+  try {
+    const result = await pool.query(
+      `
+      SELECT SUM(valor) AS total_despesas
+      FROM transacoes_cliente
+      WHERE id_cliente = $1 AND tipo = 'despesa'
+      `,
+      [id_cliente]
+    );
+
+    res.json(result.rows[0]); 
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Erro ao calcular total de despesas" });
+  }
+});
+
+router.get("/total-receitas/:id_cliente", async (req,res)=>{
+  const {id_cliente} = req.params;
+
+  try {
+    const result = await pool.query(
+      `
+      SELECT SUM(valor) AS total_receitas
+      FROM transacoes_cliente
+      WHERE id_cliente = $1 AND tipo = 'receita'
+      `,
+      [id_cliente]
+    );
+
+    res.json(result.rows[0]); 
+  }catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Erro ao calcular total de receita" });
+  }
+});
+
+
 
 module.exports = router

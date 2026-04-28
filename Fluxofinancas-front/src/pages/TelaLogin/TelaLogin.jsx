@@ -18,6 +18,7 @@ const TelaLogin = () => {
   } = useForm()
 
   const onSubmit = async (data) => {
+    console.log("Submit funcionando", data)
 
     try {
 
@@ -39,7 +40,7 @@ const TelaLogin = () => {
       localStorage.setItem("usuario", JSON.stringify(resultado.usuario))
 
 
-      navigate("/")
+      navigate("/transacao")
 
     } catch (erro) {
 
@@ -47,7 +48,7 @@ const TelaLogin = () => {
       alert("Erro ao conectar com o servidor")
 
     }
-
+    
   }
 
   return (

@@ -75,3 +75,24 @@ export async function atualizarTransacao(id, dados) {
 
   return resposta.json();
 }
+
+export async function buscarTotalDespesas() {
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+  const resposta = await fetch(
+    `http://localhost:3000/api/transacoes/total-despesas/${usuario.id}`
+  );
+
+  return resposta.json();
+}
+
+export async function BuscarTotalReceitas() {
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+  const resposta = await fetch(
+    `http://localhost:3000/api/transacoes/total-receitas/${usuario.id}`
+  );
+
+  return resposta.json(); 
+}
+

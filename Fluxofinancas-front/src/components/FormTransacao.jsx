@@ -6,7 +6,6 @@ const FormTransacao = ({ transacao, atualizarLista, fecharModal }) => {
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-  // 🔥 Preenche o formulário quando for edição
   useEffect(() => {
     if (transacao) {
       reset(transacao);
@@ -92,7 +91,7 @@ const FormTransacao = ({ transacao, atualizarLista, fecharModal }) => {
         {errors.valor && <p className="erro">{errors.valor.message}</p>}
 
         <select
-          className='input-tr'
+          className='select-tr'
           {...register("tipo", {
             validate: (value) => value !== "0" || "Selecione o tipo"
           })}

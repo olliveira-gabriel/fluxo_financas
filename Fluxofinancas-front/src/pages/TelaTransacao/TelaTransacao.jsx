@@ -7,6 +7,9 @@ import FormTransacao from "../../components/FormTransacao";
 import ListaTransacao from "../../components/ListaTransacao";
 import { listarTransacoes } from "../../services/api";
 import { deletarTransacao } from "../../services/api";
+import NavBar from "../../components/NavBar/NavBar.jsx";
+
+
 
 
 function TelaTransacao() {
@@ -46,6 +49,7 @@ function TelaTransacao() {
 
   return (
     <Container>
+      <NavBar/>
       <Row>
         <Col className="sessao-modal">
           <h1 className="titulo-tr">Transações</h1>
@@ -57,14 +61,14 @@ function TelaTransacao() {
           {abrirModal && (
             <div className="modal">
               <div className="conteudo-modal">
-                <h1>Nova Transação</h1>
+                <h1 className="titulo">Nova Transação</h1>
 
                 <FormTransacao 
                   transacao={transacaoEditando}
                   atualizarLista={carregarTransacoes}
                   fecharModal={() => {
                     setAbrirModal(false);
-                    setTransacaoEditando(null); // limpa edição
+                    setTransacaoEditando(null); 
                   }}
                 />
 

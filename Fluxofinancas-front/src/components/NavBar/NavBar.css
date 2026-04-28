@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap");
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #b5cdf7;
+  height: 70px;
+  padding: 0 40px;
+  font-family: "DM Sans", sans-serif;
+  box-shadow: 0 2px 8px rgba(1, 48, 69, 0.1);
+}
+.navbar__logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo-img {
+  height: 65px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar__usuario {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__usuario-icone {
+  color: #013045;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.navbar__usuario-nome {
+  color: #013045;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.navbar__logout-icone {
+  color: #001824;
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.navbar__usuario-nome--link {
+  cursor: pointer;
+  text-underline-offset: 3px;
+}
