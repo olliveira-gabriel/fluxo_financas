@@ -9,14 +9,15 @@
        url('../../assets/garet/Garet-Book.woff') format('woff');
 }
 
-
-.titulo-tr{
-  font-family: 'Garet';
-  font-size: 47px;
-  color: #013045;
+body{
+  background-color: #e4eff3;
 }
 
-
+.titulo-tr{
+  font-family: 'MailRay';
+  font-size: 50px;
+  color: #013045;
+}
 .sessao-modal{
   display: flex;
   flex-direction: row;
@@ -42,7 +43,33 @@
   border-radius: 12px;
   text-align: center;
 }
+.sessao-tr {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 20px 10px;
+}
 
+.sessao-tr {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 40px;
+}
+.icone-tr{
+  width: 90px;
+}
+.lado-esquerdo {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+
+.textos-tr {
+  display: flex;
+  flex-direction: column;
+}
 
 .input-tr{
   width: 450px;
@@ -92,119 +119,106 @@
   margin-top: 40px;
 }
 
-
 .tabela-custom {
   width: 90%;
   max-width: 1000px;
-
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-
-  animation: fadeIn 0.4s ease;
+  border-collapse: separate;
+  border-spacing: 0px;
+  font-family: 'Garet';
+  font-size: 13px;
+  background-color: #ffff;
+  padding: 10px;
+border-radius: 15px;
 }
 
 
-.tabela-custom thead {
-  background-color: #f8fafc;
+.tabela-custom thead tr {
+  background-color: #E4EFF3;
 }
 
 .tabela-custom th {
-  font-family: 'Garet';
-  font-size: 14px;
-  color: #64748b;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-
-.tabela-custom th,
-.tabela-custom td {
-  padding: 16px 20px;
+  padding: 14px 20px;
   text-align: center;
-  vertical-align: middle;
+  color: #5f7380;
+  font-weight: 600;
+  background-color: #dfe7ec;
 }
 
+ header 
+.tabela-custom th:first-child {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
 
-.tabela-custom tbody td {
-  border-bottom: 1px solid #f1f5f9;
+.tabela-custom th:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 
 .tabela-custom tbody tr {
-  transition: all 0.2s ease;
+  background-color: #ffffff;
+  transition: 0.2s;
 }
+
+
+.tabela-custom tbody td {
+  padding: 14px 20px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
 
 .tabela-custom tbody tr:hover {
-  background-color: #f1f5f9;
-  transform: scale(1.01);
-}
-
-
-.sem-dados {
-  text-align: center;
-  font-size: 18px;
-  margin-top: 20px;
-}
-
-
-.titulo-table{
-  font-family: 'Garet';
-  font-size: 16px;
-  color: #013045;
-  font-weight: 600;
+  background-color: #f8fafc;
 }
 
 
 .valor-receita {
-  color: #16a34a;
+  color: #3b82f6;
   font-weight: 600;
 }
 
 .valor-despesa {
-  color: #dc2626;
+  color: #fb2c2a;
+  font-weight: 600;
+}
+
+.badge-tipo {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
   font-weight: 600;
 }
 
 
-.badge-tipo {
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 500;
+.badge-tipo.receita {
+  background-color: #dbeafe;
+  color: #3b82f6;
 }
 
-.badge-tipo.receita {
-  background-color: #dcfce7;
-  color: #166534;
-}
 
 .badge-tipo.despesa {
   background-color: #fee2e2;
-  color: #991b1b;
+  color: #fb2c2a;
 }
-
-
 .acoes {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-
 .icone {
-  width: 20px;
+  width: 18px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
 .icone:hover {
-  transform: scale(1.15);
+  opacity: 1;
+  transform: scale(1.1);
 }
-
 .acao-editar:hover {
   filter: hue-rotate(180deg);
 }
@@ -223,4 +237,89 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.subtitulo-tr{
+  font-family: 'Garet';
+  font-size: 15px;
+  color: #013045;
+}
+
+
+.cards-container {
+  display: flex;
+  justify-content: center; 
+  gap: 20px;
+  margin-top: 30px;
+}
+
+
+.cardRD {
+    width: 260px;
+    height: 90px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start; 
+   padding: 20px 25px;
+   border-radius: 18px;
+   background-color: #FEFEFE;
+   color: #B3C9F3;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
+   justify-content: center;
+  gap: 15px;
+}
+
+
+.cardRD:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+.txt-card {
+  font-family: 'Garet';
+  font-size: 13px;
+  color: #013045;
+    margin-bottom: 0; 
+  opacity: 0.9;
+}
+
+.textos-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sessao-img-txt {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+}
+
+
+.icone-card {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+   border-radius: 11px;
+
+}
+
+.txt-receita{
+  font-family: 'mail';
+  font-size: 20px;
+  margin: 0;
+  color: #013045;
+}
+.txt-despesa{
+  font-family: 'mail';
+  font-size: 20px;
+  margin: 0;
+  color: #013045;
+}
+.txt-vt{
+  font-family: 'mail';
+  font-size: 20px;
+  margin: 0;
+  color: #013045;
 }
